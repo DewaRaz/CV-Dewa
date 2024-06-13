@@ -1,0 +1,162 @@
+:root {
+    --button-color: #ff0000; /* Red */
+    --text-color: #ffffff;   /* White */
+    --background-color: #282c34; /* Dark Gray */
+    --header-background: #21252b; /* Darker Gray */
+    --table-background: #333; /* Dark Gray */
+    --table-border: #444; /* Gray */
+    --textarea-background: #444; /* Dark Gray */
+    --textarea-border: #555; /* Gray */
+    --led-effect-color: rgba(255, 0, 0, 0.8); /* Red LED effect */
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+    background-color: var(--header-background);
+    position: relative;
+    box-shadow: 0 0 10px var(--led-effect-color); /* LED effect */
+}
+
+#settings-button {
+    background-color: var(--button-color);
+    color: var(--text-color);
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0 0 10px var(--led-effect-color); /* LED effect */
+}
+
+#settings-panel {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    z-index: 1;
+    background-color: var(--table-background);
+    padding: 10px;
+    border: 1px solid var(--table-border);
+    box-shadow: 0 0 10px var(--led-effect-color); /* LED effect */
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid var(--table-border);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 10px var(--led-effect-color); /* LED effect */
+}
+
+td {
+    padding: 20px;
+    text-align: center;
+    border-right: 1px solid var(--table-border);
+    border-bottom: 1px solid var(--table-border);
+}
+
+td:last-child {
+    border-right: none;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+label {
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+textarea, select, input[type="text"], input[type="color"] {
+    width: calc(100% - 20px);
+    background-color: var(--textarea-background);
+    border: 1px solid var(--textarea-border);
+    color: var(--text-color);
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+button {
+    background-color: var(--button-color);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 0 0 10px var(--led-effect-color); /* LED effect */
+    position: relative;
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+footer {
+    margin-top: auto;
+    padding: 10px;
+    background-color: var(--header-background);
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+}
+
+.led-effect {
+    animation: led-effect 2s infinite;
+}
+
+@keyframes led-effect {
+    0% {
+        box-shadow: 0 0 10px 5px var(--led-effect-color);
+    }
+    50% {
+        box-shadow: 0 0 20px 10px var(--led-effect-color);
+    }
+    100% {
+        box-shadow: 0 0 10px 5px var(--led-effect-color);
+    }
+}
